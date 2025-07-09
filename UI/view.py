@@ -1,6 +1,5 @@
 import flet as ft
 
-
 class View(ft.UserControl):
     def __init__(self, page: ft.Page):
         super().__init__()
@@ -25,6 +24,7 @@ class View(ft.UserControl):
         self._page.controls.append(self._title)
 
         self._ddStore = ft.Dropdown(label="Store")
+        self._controller.fillDDStores()
         self._txtIntK = ft.TextField(label="Numero giorni massimo K")
         self._btnCreaGrafo = ft.ElevatedButton(text="Crea Grafo", on_click=self._controller.handleCreaGrafo)
         cont = ft.Container(self._ddStore, width=250, alignment=ft.alignment.top_left)
@@ -50,8 +50,8 @@ class View(ft.UserControl):
         self._page.controls.append(row1)
         self._page.controls.append(row2)
         self._page.controls.append(row3)
-        self.txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
-        self._page.controls.append(self.txt_result)
+        self._txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
+        self._page.controls.append(self._txt_result)
         self._page.update()
 
 
